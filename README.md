@@ -85,7 +85,7 @@ O login armazena o token JWT no `localStorage` e utiliza um interceptor para env
 
 ## Observações
 
-- O backend (`https://github.com/orbmartins/ziirocrm-back`) deve estar rodando em `http://localhost:8080` para autenticação e listagem de usuários.
+- O backend ([https://github.com/orbmartins/ziirocrm-back](https://github.com/orbmartins/ziirocrm-back)) deve estar rodando em `http://localhost:8080` para autenticação e listagem de usuários.
 - As variáveis de cor e estilos globais estão em `src/styles.scss`.
 
 ---
