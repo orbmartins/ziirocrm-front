@@ -1,59 +1,93 @@
-# ZiirocrmFront
+# ziirocrm-front
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+Este projeto é um frontend Angular para o sistema ziiroCRM.
 
-## Development server
+## Requisitos
 
-To start a local development server, run:
+- Node.js (recomendado: versão 18+)
+- npm (recomendado: versão 9+)
+- Angular CLI (`npm install -g @angular/cli`)
 
-```bash
-ng serve
+## Instalação
+
+Clone o repositório e instale as dependências:
+
+```sh
+git clone https://github.com/seu-usuario/ziirocrm-front.git
+cd ziirocrm-front
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Servidor de Desenvolvimento
 
-## Code scaffolding
+Para iniciar o servidor de desenvolvimento:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```sh
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Acesse [http://localhost:4200](http://localhost:4200) no navegador. O app será recarregado automaticamente ao salvar arquivos.
 
-```bash
-ng generate --help
+## Build de Produção
+
+Para gerar o build de produção:
+
+```sh
+npm run build
 ```
 
-## Building
+Os arquivos serão gerados em `dist/ziirocrm-front`.
 
-To build the project run:
+## Testes Unitários
 
-```bash
-ng build
+Para rodar os testes unitários com Karma:
+
+```sh
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Estrutura do Projeto
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+```
+src/
+  app/
+    core/
+      guards/
+      interceptors/
+      services/
+    pages/
+      dashboard/
+      home/
+      login/
+    app.component.*
+    app.config.ts
+    app.routes.ts
+  assets/
+  styles.scss
+  main.ts
+  index.html
 ```
 
-## Running end-to-end tests
+- **Guards**: Proteção de rotas (ex: autenticação)
+- **Interceptors**: Interceptação de requisições HTTP (ex: token JWT)
+- **Services**: Serviços de autenticação e outros
+- **Pages**: Componentes de página (Dashboard, Home, Login)
 
-For end-to-end (e2e) testing, run:
+## Rotas
 
-```bash
-ng e2e
-```
+- `/` - Página inicial (Home)
+- `/login` - Tela de login
+- `/dashboard` - Dashboard (protegido por autenticação)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Autenticação
 
-## Additional Resources
+O login armazena o token JWT no `localStorage` e utiliza um interceptor para enviar o token nas requisições autenticadas.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Observações
+
+- O backend (`https://github.com/orbmartins/ziirocrm-back`) deve estar rodando em `http://localhost:8080` para autenticação e listagem de usuários.
+- As variáveis de cor e estilos globais estão em `src/styles.scss`.
+
+---
+
+Gerado com [Angular CLI](https://angular.dev/tools/cli)
