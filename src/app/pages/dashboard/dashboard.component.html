@@ -1,0 +1,8 @@
+<h2>Dashboard</h2>
+<p>Lista de usuários:</p>
+<ul>
+    <li *ngFor="let user of users">
+    {{ user.name }} - {{ user.email }}
+    </li>
+</ul>
+<p *ngIf="error" style="color:red">{{ error }}</p>
