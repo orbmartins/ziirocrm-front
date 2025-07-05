@@ -1,22 +1,32 @@
 :root {
-    --green-primary: #2F9E44;
-    --green-dark: #174A24;
-    --green-light: #5FC26D;
-    --gray-light: #F5F7F6;
+    --color-primary: #2F9E44;
+    --color-primary-dark: #174A24;
+    --color-primary-light: #5FC26D;
+    --color-primary-lightgray: #F5F7F6;
 
-    --gray-900: #121212;
-    --gray-800: #1E1E1E;
-    --gray-700: #2C2C2C;
-    --gray-600: #3A3A3A;
-    --gray-500: #4A4A4A;
-    --gray-400: #6B6B6B;
-    --gray-300: #8C8C8C;
-    --gray-200: #B0B0B0;
-    --gray-100: #D4D4D4;
-    --gray-50: #F5F5F5;
+    --color-secondary: #FFB300;
+    --color-secondary-dark: #e7a200;
+
+    --color-gray-900: #121212;
+    --color-gray-800: #1E1E1E;
+    --color-gray-700: #2C2C2C;
+    --color-gray-600: #3A3A3A;
+    --color-gray-500: #4A4A4A;
+    --color-gray-400: #6B6B6B;
+    --color-gray-300: #8C8C8C;
+    --color-gray-200: #B0B0B0;
+    --color-gray-100: #D4D4D4;
+    --color-gray-50: #F5F5F5;
+
+    --color-black: #000000;
+    --color-white: #FFFFFF;
 
     --text-default: #222222;
     --text-heading: #222222;
+
+    --radius-base: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
 
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
@@ -26,12 +36,16 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--font-family);
     color: var(--text-default);
-    background-color: var(--gray-light);
+    background-color: var(--color-primary-lightgray);
     font-weight: 400;
-    line-height: 1.5;
+    line-height: normal;
     margin: 0;
     padding: 0;
 }
@@ -43,7 +57,7 @@ h4,
 h5,
 h6 {
     font-family: var(--font-family);
-    color: var(--green-dark);
+    color: var(--color-primary-dark);
     font-weight: 700;
     letter-spacing: normal;
     margin: initial;
@@ -60,6 +74,10 @@ button {
     margin: 0;
 }
 
+.w-full {
+    width: 100%;
+}
+
 main {
     position: relative;
     display: flex;
@@ -72,37 +90,81 @@ main {
     
 }
 
+.container {
+    width: 100%;
+    max-width: 1440px;
+    padding: 2rem;
+}
+
 .content {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    max-width: 700px;
+    max-width: 1440px;
+}
+
+button,
+.btn-primary {
+    font-size: 1rem;
+    line-height: 1.8rem;
+    font-weight: 600;
+    padding: .5rem 1.875rem;
+    border-radius: 100rem;
+    border: 0;
+    outline: none;
+    background-color: var(--color-secondary);
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+button:hover,
+.btn-primary:hover {
+    background-color: var(--color-secondary-dark);
+    transform: scale(1.025);
+    transition: .3s ease;
+}
+
+
+
+
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header-content div {
+    display: flex;
+    align-items: center;
 }
 
 .divider {
     width: 1px;
-    background: var(--gray-100);
+    background: var(--color-gray-100);
     margin-inline: 0.5rem;
 }
 
 .left-side {
-    width: 60%;
+    width: 50%;
 }
 
 .right-side {
-    width: 40%;
+    width: 60%;
 }
 
 .left-side, .right-side {
     display: flex;
     align-items: center;
-    padding: 2rem;
+    justify-content: center;
+    padding: 2rem 4rem;
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     width: 100%;
 }
 
@@ -120,26 +182,59 @@ main {
 .form-base {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     width: 100%;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
     width: 100%;
+    margin-top: .75rem;
 }
 
 .form-field {
+    position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.form-field label {
+    position: absolute;
+    top: -.75rem;
+    left: .5rem;
+    background-color: var(--color-primary-lightgray);
+    padding: 0 .5rem;
+    font-size: .875rem;
+    line-height: normal;
+}
+
+.form-field input {
+    font-size: 1rem;
+    line-height: normal;
+    width: 100%;
+    font-weight: 400;
+    border: 1px solid var(--color-black);
+    border-radius: var(--radius-base);
+    outline: none !important;
+    transition: .3s ease;
+    background-color: transparent;
+    padding: 1rem .75rem .75rem .75rem;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 @media screen and (max-width: 650px) {
     .content {
         flex-direction: column;
-        width: max-content;
+        width: 100%;
+    }
+
+    .left-side,
+    .right-side {
+        width: 100%;
+        padding: 2rem;
     }
 
     .divider {

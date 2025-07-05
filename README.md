@@ -53,13 +53,47 @@ src/
   app/
     core/
       guards/
+        auth.guard.ts
+        auth.guard.spec.ts
       interceptors/
+        auth.interceptor.ts
+        auth.interceptor.spec.ts
       services/
+        auth.service.ts
+        auth.service.spec.ts
     pages/
       dashboard/
+        dashboard.component.ts
+        dashboard.component.html
+        dashboard.component.scss
       home/
+        home.component.ts
+        home.component.html
+        home.component.scss
       login/
-    app.component.*
+        login.component.ts
+        login.component.html
+        login.component.scss
+      user-create/
+        user-create.component.ts
+        user-create.component.html
+        user-create.component.scss
+      users/
+        create-user/
+          create-user.component.ts
+          create-user.component.html
+          create-user.component.scss
+        edit-user/
+          edit-user.component.ts
+          edit-user.component.html
+          edit-user.component.scss
+    shared/
+      navbar.component.ts
+      navbar.component.html
+      navbar.component.scss
+    app.component.ts
+    app.component.html
+    app.component.scss
     app.config.ts
     app.routes.ts
   assets/
@@ -71,13 +105,16 @@ src/
 - **Guards**: Proteção de rotas (ex: autenticação)
 - **Interceptors**: Interceptação de requisições HTTP (ex: token JWT)
 - **Services**: Serviços de autenticação e outros
-- **Pages**: Componentes de página (Dashboard, Home, Login)
+- **Pages**: Componentes de página (Dashboard, Home, Login, Cadastro/Edição de Usuário)
+- **Shared**: Componentes compartilhados (Navbar)
 
 ## Rotas
 
 - `/` - Página inicial (Home)
 - `/login` - Tela de login
 - `/dashboard` - Dashboard (protegido por autenticação)
+- `/usuarios/cadastrar` - Cadastro de usuário (protegido)
+- `/usuarios/editar/:id` - Edição de usuário (protegido)
 
 ## Autenticação
 

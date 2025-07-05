@@ -1,0 +1,24 @@
+<section class="container">
+    <div>
+        <h2>Editar Usuário</h2>
+        <form *ngIf="user" (ngSubmit)="onSubmit()">
+            <label>
+                Nome:
+                <input type="text" [(ngModel)]="user.name" name="name" required />
+            </label>
+            <br />
+            <label>
+                Email:
+                <input type="email" [(ngModel)]="user.email" name="email" required />
+            </label>
+            <br />
+            <label>
+                Senha:
+                <input type="password" [(ngModel)]="user.password" name="password" />
+            </label>
+            <br />
+            <button type="submit">Salvar</button>
+        </form>
+        <p *ngIf="error" style="color:red">{{ error }}</p>
+    </div>
+</section>

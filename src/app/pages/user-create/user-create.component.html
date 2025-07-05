@@ -12,12 +12,19 @@
         <div class="divider" role="separator" aria-label="Divider"></div>
         <div class="right-side">
             <div class="login-form">
-                <h2>Login</h2>
-                <div class="error-message" *ngIf="error">  
-                    <p>{{ error }}</p>
+                <h2>Novo Usuário</h2>
+                <div class="error-message" *ngIf="error">
+                    <p *ngIf="error" style="color: red">{{ error }}</p>
+                </div>
+                <div class="success-message" *ngIf="success">
+                    <p *ngIf="success" style="color: green">Usuário cadastrado com sucesso!</p>
                 </div>
                 <form (ngSubmit)="onSubmit()" class="form-base">
                     <div class="form-group">
+                        <div class="form-field">
+                            <label for="ff-nome">Nome</label>
+                            <input id="ff-nome" type="text" [(ngModel)]="name" name="name" required />
+                        </div>
                         <div class="form-field">
                             <label for="ff-email">Email</label>
                             <input id="ff-email" type="email" [(ngModel)]="email" name="email" required />
@@ -28,7 +35,7 @@
                         </div>
                     </div>
                     <div>
-                        <button type="submit" class="btn-primary w-full">Entrar</button>
+                        <button type="submit" class="btn-primary w-full">Cadastrar</button>
                     </div>
                 </form>
             </div>
