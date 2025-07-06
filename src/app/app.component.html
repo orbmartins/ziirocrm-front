@@ -1,1 +1,6 @@
-<router-outlet />
+<section class="flex md:h-screen md:overflow-hidden w-full flex-col md:flex-row items-start justify-start gap-4 p-4 bg-zr-secondary-superlight">
+    <app-sidebar class="h-full w-full min-w-[12rem] max-w-[20rem]"/>
+    <div [ngClass]="{'bg-[url(/ziiro-icon-light-op1.svg)]': router.url == '/login', 'bg-size-[10%]': router.url == '/login', 'bg-center': router.url == '/login', }" class="md:overflow-auto flex h-full w-full flex-col rounded-xl bg-white bg-clip-border p-8">
+        <router-outlet/>
+    </div>
+</section>

@@ -1,10 +1,12 @@
-<app-navbar></app-navbar>
 <section class="container">
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+    </h1>
     <h2>Dashboard</h2>
     <p>Lista de usuários:</p>
     <ul>
         <li *ngFor="let user of users">
-        {{ user.name }} - {{ user.email }} - <button (click)="editar(user.id)">Editar</button> - <button (click)="excluir(user.id)">Excluir</button>
+            {{ user.name }} - {{ user.email }} - <button (click)="editar(user.id)">Editar</button> - <button (click)="excluir(user.id)">Excluir</button>
         </li>
     </ul>
     <p *ngIf="error" style="color:red">{{ error }}</p>

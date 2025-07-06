@@ -88,9 +88,26 @@ src/
           edit-user.component.html
           edit-user.component.scss
     shared/
-      navbar.component.ts
-      navbar.component.html
-      navbar.component.scss
+      app-nav/
+        app-nav.component.ts
+        app-nav.component.html
+        app-nav.component.scss
+      brand/
+        brand.component.ts
+        brand.component.html
+        brand.component.scss
+      confirm-logout-dialog/
+        confirm-logout-dialog.component.ts
+        confirm-logout-dialog.component.html
+        confirm-logout-dialog.component.scss
+      sidebar/
+        sidebar.component.ts
+        sidebar.component.html
+        sidebar.component.scss
+      user-nav/
+        user-nav.component.ts
+        user-nav.component.html
+        user-nav.component.scss
     app.component.ts
     app.component.html
     app.component.scss
@@ -106,7 +123,7 @@ src/
 - **Interceptors**: Interceptação de requisições HTTP (ex: token JWT)
 - **Services**: Serviços de autenticação e outros
 - **Pages**: Componentes de página (Dashboard, Home, Login, Cadastro/Edição de Usuário)
-- **Shared**: Componentes compartilhados (Navbar)
+- **Shared**: Componentes compartilhados (Sidebar, Navegação, Brand, Dialogs)
 
 ## Rotas
 
