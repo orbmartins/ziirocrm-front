@@ -1,6 +1,13 @@
 <section class="flex md:h-screen md:overflow-hidden w-full flex-col md:flex-row items-start justify-start gap-4 p-4 bg-zr-secondary-superlight">
-    <app-sidebar class="h-full w-full min-w-[12rem] max-w-[20rem]"/>
+    <app-sidebar class="h-full w-full min-w-[12rem] max-w-[20rem]" />
     <div [ngClass]="{'bg-[url(/ziiro-icon-light-op1.svg)]': router.url == '/login', 'bg-size-[10%]': router.url == '/login', 'bg-center': router.url == '/login', }" class="md:overflow-auto flex h-full w-full flex-col rounded-xl bg-white bg-clip-border p-8">
-        <router-outlet/>
+        <div class="pb-4 md:pb-4 border-b-zr-secondary-superlight border-b-2">
+            <div class="flex flex-col md:flex-row items-start md:items-end md:justify-between gap-4">
+                <h1 class="text-xl text-zr-primary font-semibold">{{ pageTitle }}</h1>
+                <a *ngIf="router.url == '/usuarios'" href="/usuarios/criar-usuario" class="btn-primary">Novo usuário</a>
+                <a *ngIf="router.url == '/oportunidades'" href="/oportunidades/criar-oportunidade" class="btn-primary">Nova oportunidade</a>
+            </div>
+        </div>
+        <router-outlet class="pt-4" />
     </div>
 </section>

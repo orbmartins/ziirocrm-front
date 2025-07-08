@@ -1,0 +1,70 @@
+<section class="md:max-h-[78vh] h-full bg-white p-8 mt-4 rounded-xl border-2 border-zr-secondary-superlight">
+    <div class="relative flex flex-col w-full h-full text-gray-700">
+        <div class="h-full overflow-scroll pr-6 pb-6">
+            <table class="w-full table-auto min-w-max text-left">
+                <thead>
+                    <tr>
+                        <th class="p-4 border-b border-zr-secondary bg-blue-gray-50/50">
+                            <p class="block font-sans text-sm antialiased font-semibold leading-none text-black">
+                                Nome
+                            </p>
+                        </th>
+                        <th class="p-4 border-b border-zr-secondary bg-blue-gray-50/50">
+                            <p class="block font-sans text-sm antialiased font-semibold leading-none text-black">
+                                E-mail
+                            </p>
+                        </th>
+                        <th class="p-4 border-b border-zr-secondary bg-blue-gray-50/50">
+                            <p class="block font-sans text-sm antialiased font-semibold leading-none text-black text-right">
+                                Ações
+                            </p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="error">
+                        <td class="px-4 py-2 border-b border-zr-secondary-light" colspan="3">
+                            <p class="block font-sans text-sm antialiased font-normal leading-normal text-red-400">{{ error }}</p>
+                        </td>
+                    </tr>
+                    <tr *ngFor="let user of users" class="hover:bg-zr-secondary-superlight transition-all duration-300">
+                        <td class="px-4 py-1 border-b border-zr-secondary-light">
+                            <div class="flex items-center gap-3">
+                                <div class="flex flex-col">
+                                    <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                        {{ user.name }}
+                                    </p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-4 py-1 border-b border-zr-secondary-light">
+                            <div class="flex flex-col">
+                                <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                    {{ user.email }}
+                                </p>
+                            </div>
+                        </td>
+                        <td class="px-4 py-1 border-b border-zr-secondary-light">
+                            <div class="flex items-start justify-end gap-2">
+                                <button title="Editar" (click)="editar(user.id)" class="cursor-pointer relative h-[30px] w-[30px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:text-zr-secondary hover:bg-zr-primary active:zr-primary disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                                    <span class="block w-full h-full">
+                                        <span class="material-symbols-outlined text-[18px]! leading-[22px]! w-full h-full p-1">
+                                            edit
+                                        </span>
+                                    </span>
+                                </button>
+                                <button title="Excluir" (click)="excluir(user.id)" class="cursor-pointer relative h-[30px] w-[30px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:text-zr-secondary hover:bg-zr-primary active:zr-primary disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                                    <span class="block w-full h-full">
+                                        <span class="material-symbols-outlined text-[18px]! leading-[22px]! w-full h-full p-1">
+                                            delete
+                                        </span>
+                                    </span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

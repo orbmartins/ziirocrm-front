@@ -34,7 +34,7 @@ export class UserEditComponent implements OnInit {
 
   onSubmit() {
     this.http.put(`http://localhost:8080/api/users/${this.user.id}`, this.user).subscribe({
-      next: () => this.router.navigate(['/dashboard']),
+      next: () => this.router.navigate(['/usuarios']),
       error: (err) => {
         this.error = 'Erro ao atualizar usuário';
         console.error(err);

@@ -4,12 +4,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-confirm-logout-dialog',
+  selector: 'app-confirm-userexclusion-dialog',
   imports: [MatButtonModule, MatDialogModule, CommonModule],
-  templateUrl: './confirm-logout-dialog.component.html',
-  styleUrl: './confirm-logout-dialog.component.scss'
+  templateUrl: './confirm-userexclusion-dialog.component.html',
+  styleUrl: './confirm-userexclusion-dialog.component.scss'
 })
 
-export class ConfirmLogoutDialogComponent {
+export class ConfirmUserExclusionDialogComponent {
 
 }

@@ -50,73 +50,38 @@ npm test
 
 ```
 src/
+  index.html
+  main.ts
+  styles.scss
   app/
-    core/
-      guards/
-        auth.guard.ts
-        auth.guard.spec.ts
-      interceptors/
-        auth.interceptor.ts
-        auth.interceptor.spec.ts
-      services/
-        auth.service.ts
-        auth.service.spec.ts
-    pages/
-      dashboard/
-        dashboard.component.ts
-        dashboard.component.html
-        dashboard.component.scss
-      home/
-        home.component.ts
-        home.component.html
-        home.component.scss
-      login/
-        login.component.ts
-        login.component.html
-        login.component.scss
-      user-create/
-        user-create.component.ts
-        user-create.component.html
-        user-create.component.scss
-      users/
-        create-user/
-          create-user.component.ts
-          create-user.component.html
-          create-user.component.scss
-        edit-user/
-          edit-user.component.ts
-          edit-user.component.html
-          edit-user.component.scss
-    shared/
-      app-nav/
-        app-nav.component.ts
-        app-nav.component.html
-        app-nav.component.scss
-      brand/
-        brand.component.ts
-        brand.component.html
-        brand.component.scss
-      confirm-logout-dialog/
-        confirm-logout-dialog.component.ts
-        confirm-logout-dialog.component.html
-        confirm-logout-dialog.component.scss
-      sidebar/
-        sidebar.component.ts
-        sidebar.component.html
-        sidebar.component.scss
-      user-nav/
-        user-nav.component.ts
-        user-nav.component.html
-        user-nav.component.scss
-    app.component.ts
     app.component.html
     app.component.scss
+    app.component.spec.ts
+    app.component.ts
     app.config.ts
     app.routes.ts
-  assets/
-  styles.scss
-  main.ts
-  index.html
+    core/
+      guards/
+        auth.guard.spec.ts
+        auth.guard.ts
+      interceptors/
+        auth.interceptor.spec.ts
+        auth.interceptor.ts
+      services/
+    pages/
+      dashboard/
+      home/
+      login/
+      oportunidades/
+      users/
+    shared/
+      app-nav/
+      brand/
+      confirm-logout-dialog/
+      confirm-oportunidadeexclusion-dialog/
+      confirm-userexclusion-dialog/
+      sidebar/
+      user-nav/
 ```
 
 - **Guards**: Proteção de rotas (ex: autenticação)
@@ -130,8 +95,12 @@ src/
 - `/` - Página inicial (Home)
 - `/login` - Tela de login
 - `/dashboard` - Dashboard (protegido por autenticação)
-- `/usuarios/cadastrar` - Cadastro de usuário (protegido)
+- `/usuarios` - Listagem de usuários (protegido)
+- `/usuarios/criar-usuario` - Cadastro de usuário (protegido)
 - `/usuarios/editar/:id` - Edição de usuário (protegido)
+- `/oportunidades` - Listagem de oportunidades (protegido)
+- `/oportunidades/criar-oportunidade` - Cadastro de oportunidade (protegido)
+- `/oportunidades/editar/:id` - Edição de oportunidade (protegido)
 
 ## Autenticação
 

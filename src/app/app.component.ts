@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,26 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
   styleUrls: ['./app.component.scss'],
 })
 
-export class AppComponent {
-  constructor(public router: Router) { }
+export class AppComponent implements OnInit {
+  pageTitle = '';
+
+  constructor(
+    public router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        let route = this.activatedRoute.firstChild;
+
+        while (route?.firstChild) {
+          route = route.firstChild;
+        }
+
+        this.pageTitle = route?.snapshot.data['title'] ?? '';
+        document.title = this.pageTitle ? `${this.pageTitle} | ziiroCRM` : 'ziiroCRM';
+      });
+  }
 }

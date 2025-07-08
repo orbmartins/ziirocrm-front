@@ -21,7 +21,7 @@
                     <input class="peer w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-4 pt-6 pb-3 transition duration-300 ease focus:outline-none focus:border-zr-secondary hover:border-zr-secondary" id="ff-password" type="password" [(ngModel)]="password" name="password" placeholder="" required />
                     <label class="absolute left-4 top-[18px] origin-[0] -translate-y-3 scale-75 duration-150 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-3 peer-focus:scale-75 text-sm text-slate-600" for="ff-password">Senha</label>
                 </div>
-                <div class="inline-flex items-center mt-2">
+                <div class="hidden items-center mt-2">
                     <label class="flex items-center cursor-pointer relative" for="check-2">
                         <input type="checkbox" class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800" id="check-2" />
                         <span class="absolute text-white opacity-0 pointer-events-none peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -38,14 +38,14 @@
             <div class="mt-4">
                 <button type="submit" class="btn-primary w-full">Entrar</button>
             </div>
-            <div class="mt-8 pt-2 border-t border-zr-secondary">
-                <p class="flex justify-center mt-6 text-sm text-slate-600">
-                    Sem conta?
-                    <a href="#signup" class="ml-1 text-sm font-semibold text-slate-700 underline">
-                        Crie uma agora
-                    </a>
-                </p>
-            </div>
         </form>
+        <div class="pt-2 border-t border-zr-secondary">
+            <p class="flex justify-center mt-6 text-sm text-slate-600 cursor-pointer">
+                Sem conta?
+                <button routerLink="/criar-conta" class="ml-1 text-sm font-semibold text-slate-700 underline">
+                    Crie uma agora
+                </button>
+            </p>
+        </div>
     </div>
 </div>

@@ -1,0 +1,75 @@
+<section class="md:max-h-[78vh] overflow-scroll h-full bg-white p-8 mt-4 rounded-xl border-2 border-zr-secondary-superlight">
+    <div class="relative flex flex-col gap-16 w-full text-gray-700">
+        <div class="flex flex-col gap-4"> 
+            <div class="w-full">
+                <h2 class="font-semibold text-2xl"> {{ oportunidade.nome }} </h2>
+            </div>
+            <div class="w-full h-full">
+                <div *ngIf="error">
+                    <p style="color:red">{{ error }}</p>
+                </div>
+                <form *ngIf="oportunidade" (ngSubmit)="onSubmit()" class="form-wrapper flex flex-col gap-4">
+                    <div class="form-group flex flex-col gap-4">
+                        <div class="form-field w-full relative">
+                            <input class="peer w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-4 pt-6 pb-3 transition duration-300 ease focus:outline-none focus:border-zr-secondary hover:border-zr-secondary" id="ff-name" type="name" [(ngModel)]="oportunidade.nome" name="name" placeholder="" required />
+                            <label class="absolute left-4 top-[18px] origin-[0] -translate-y-3 scale-75 duration-150 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-3 peer-focus:scale-75 text-sm text-slate-600" for="ff-name">Nome</label>
+                        </div>
+                        <div class="form-field w-full relative">
+                            <input class="peer w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-4 pt-6 pb-3 transition duration-300 ease focus:outline-none focus:border-zr-secondary hover:border-zr-secondary" id="ff-email" type="email" [(ngModel)]="oportunidade.email" name="email" placeholder="" required />
+                            <label class="absolute left-4 top-[18px] origin-[0] -translate-y-3 scale-75 duration-150 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-3 peer-focus:scale-75 text-sm text-slate-600" for="ff-email">Email</label>
+                        </div>
+                        <div class="form-field w-full relative">
+                            <input class="peer w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-4 pt-6 pb-3 transition duration-300 ease focus:outline-none focus:border-zr-secondary hover:border-zr-secondary" id="ff-telefone" type="fone" [(ngModel)]="oportunidade.telefone" name="telefone" placeholder="" required />
+                            <label class="absolute left-4 top-[18px] origin-[0] -translate-y-3 scale-75 duration-150 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-3 peer-focus:scale-75 text-sm text-slate-600" for="ff-password">Telefone</label>
+                        </div>
+                        <div class="form-field w-full relative">
+                            <input class="peer w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-4 pt-6 pb-3 transition duration-300 ease focus:outline-none focus:border-zr-secondary hover:border-zr-secondary" id="ff-empresa" type="text" [(ngModel)]="oportunidade.empresa" name="empresa" placeholder="" required />
+                            <label class="absolute left-4 top-[18px] origin-[0] -translate-y-3 scale-75 duration-150 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-3 peer-focus:scale-75 text-sm text-slate-600" for="ff-password">Empresa</label>
+                        </div>
+                        <div class="form-field w-full relative">
+                            <input class="peer w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-4 pt-6 pb-3 transition duration-300 ease focus:outline-none focus:border-zr-secondary hover:border-zr-secondary" id="ff-obs" type="text" [(ngModel)]="oportunidade.observacoes" name="observacoes" placeholder="" required />
+                            <label class="absolute left-4 top-[18px] origin-[0] -translate-y-3 scale-75 duration-150 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-3 peer-focus:scale-75 text-sm text-slate-600" for="ff-obs">Observações</label>
+                        </div>
+                    </div>
+                    <div class="flex justify-end mt-4">
+                        <button type="submit" class="btn-primary">Salvar alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="flex flex-col gap-6 w-full h-full p-6 rounded-xl border-2 border-zr-secondary-superlight">
+            <div class="flex flex-col gap-4">
+                <div class="w-full">
+                    <h2 class="font-semibold text-2xl"> Atendimentos </h2>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div *ngFor="let atendimento of atendimentos" class="flex flex-col gap-1 bg-zr-secondary-superlight p-4 rounded-md">
+                        <div><strong>Data:</strong> {{ atendimento.data | date:'dd/MM/yyyy HH\'h\'mm' }}</div>
+                        <div><strong>Responsável:</strong> {{ atendimento.responsavel }}</div>
+                        <div><strong>Descrição:</strong> {{ atendimento.descricao }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4 p-4 rounded-xl border-2 border-zr-secondary-superlight">
+                <div class="w-full">
+                    <h3 class="font-semibold text-xl">Adicionar um novo atendimento</h3>
+                </div>
+                <form (ngSubmit)="adicionarAtendimento(oportunidade.id)" class="form-wrapper flex flex-col gap-4">
+                    <div class="form-group flex flex-col gap-4">
+                        <div class="form-field w-full relative">
+                            <input class="peer w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-4 pt-6 pb-3 transition duration-300 ease focus:outline-none focus:border-zr-secondary hover:border-zr-secondary" id="ff-atendimentodescricao" type="text" [(ngModel)]="novoAtendimento.descricao" name="atendimentodescricao" placeholder="" required />
+                            <label class="absolute left-4 top-[18px] origin-[0] -translate-y-3 scale-75 duration-150 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-3 peer-focus:scale-75 text-sm text-slate-600" for="ff-atendimentodescricao">Descrição</label>
+                        </div>
+                        <div class="form-field w-full relative">
+                            <input class="peer w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-4 pt-6 pb-3 transition duration-300 ease focus:outline-none focus:border-zr-secondary hover:border-zr-secondary" id="ff-atendimentoresponsavel" type="text" [(ngModel)]="novoAtendimento.responsavel" name="atendimentoresponsavel" placeholder="" required />
+                            <label class="absolute left-4 top-[18px] origin-[0] -translate-y-3 scale-75 duration-150 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-3 peer-focus:scale-75 text-sm text-slate-600" for="ff-atendimentoresponsavel">Responsável</label>
+                        </div>
+                    </div>
+                    <div class="flex justify-end mt-4">
+                        <button type="submit" class="btn-primary">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
